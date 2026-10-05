@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080b14" />
+  <meta name="description" content="CineMorph AI video creation studio" />
+  <title>CineMorph AI — Video Studio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">C</div><div><strong>CineMorph</strong><span>AI Video Studio</span></div></div>
+      <nav>
+        <button class="nav-item active" data-view="studio">✦ <span>Studio</span></button>
+        <button class="nav-item" data-view="script">▤ <span>Script Writer</span></button>
+        <button class="nav-item" data-view="timeline">◫ <span>Timeline</span></button>
+        <button class="nav-item" data-view="library">▧ <span>Library</span></button>
+      </nav>
+      <div class="side-bottom"><div class="status-dot"></div><span>Local project ready</span></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar"><div><p class="eyebrow">VIDEO CREATION WORKSPACE</p><h1 id="pageTitle">Studio</h1></div><div class="top-actions"><button id="newProject" class="ghost">＋ New Project</button><button id="exportBtn" class="primary">Export Project</button></div></header>
+
+      <section id="studio" class="view active-view">
+        <div class="hero card"><div><span class="pill">CineMorph AI</span><h2>Turn an idea into a video.</h2><p>Write a concept, build scenes, arrange your timeline, and export your project package—all directly in your browser.</p></div><div class="hero-orb">✦</div></div>
+        <div class="grid-2">
+          <div class="card"><div class="card-head"><h3>Quick Create</h3><span class="muted">Start from an idea</span></div><textarea id="ideaInput" placeholder="Example: A cinematic 60-second trailer about a young explorer discovering a hidden city..."></textarea><div class="row"><select id="tone"><option>Cinematic</option><option>Documentary</option><option>Energetic</option><option>Emotional</option><option>Minimal</option></select><select id="duration"><option value="30">30 seconds</option><option value="60" selected>60 seconds</option><option value="90">90 seconds</option><option value="120">2 minutes</option></select><button id="generateBtn" class="primary grow">Generate Plan</button></div></div>
+          <div class="card"><div class="card-head"><h3>Project Overview</h3><span id="projectState" class="pill green">Ready</span></div><div class="stats"><div><b id="sceneCount">0</b><span>Scenes</span></div><div><b id="totalDuration">0s</b><span>Duration</span></div><div><b id="assetCount">0</b><span>Assets</span></div></div><div class="progress-wrap"><div class="progress-label"><span>Project completion</span><b id="progressText">0%</b></div><div class="progress"><i id="progressBar"></i></div></div></div>
+        </div>
+        <div class="card"><div class="card-head"><h3>Scene Plan</h3><button id="addScene" class="ghost">＋ Add Scene</button></div><div id="sceneList" class="scene-list"><div class="empty">No scenes yet. Enter an idea above and generate a plan.</div></div></div>
+      </section>
+
+      <section id="script" class="view"><div class="card"><div class="card-head"><div><h3>AI Script Writer</h3><span class="muted">Create a polished voiceover from your concept</span></div><button id="scriptBtn" class="primary">Write Script</button></div><textarea id="scriptPrompt" class="large-input" placeholder="Describe the video, audience and message..."></textarea><div id="scriptOutput" class="script-output"><span class="muted">Your generated script will appear here.</span></div></div></section>
+
+      <section id="timeline" class="view"><div class="card"><div class="card-head"><div><h3>Timeline</h3><span class="muted">Drag-free visual editing workspace</span></div><button id="clearTimeline" class="ghost">Clear</button></div><div id="timelineTracks" class="tracks"><div class="empty">Generate a scene plan to populate the timeline.</div></div></div></section>
+
+      <section id="library" class="view"><div class="card"><div class="card-head"><div><h3>Media Library</h3><span class="muted">Upload local images, video or audio</span></div><label class="primary upload">＋ Add Media<input id="mediaInput" type="file" multiple accept="image/*,video/*,audio/*" hidden></label></div><div id="mediaGrid" class="media-grid"><div class="empty">No media added yet.</div></div></div></section>
+
+      <footer>© 2026 CineMorph AI · Built as a browser-first creator studio</footer>
+    </main>
+  </div>
+  <div id="toast" class="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
